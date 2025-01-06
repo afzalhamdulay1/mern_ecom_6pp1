@@ -5,10 +5,10 @@ import axios from 'axios';
 
 // Set the base URL for Axios
 // const url = process.env.REACT_APP_API_URL || "http://localhost:4000";
+// baseURL: `https://mern-ecom-6pp1-wg85-git-main-afzals-projects-6b32063b.vercel.app/api/v1`,
 const url = "https://ecom1-mern.netlify.app"
 
 const api = axios.create({
-  // baseURL: `https://mern-ecom-6pp1-wg85-git-main-afzals-projects-6b32063b.vercel.app/api/v1`,
   baseURL: `/api/v1`,
   withCredentials: true,
   headers: {

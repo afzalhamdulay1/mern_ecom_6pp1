@@ -3,9 +3,9 @@
     margin: 0;
   }
 
-  /* html{
+  html{
     scroll-behavior: smooth;
-  } */
+  }
   
   body {
     cursor: url("./images/cursor.png"), auto;
