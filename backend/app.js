@@ -24,10 +24,13 @@ app.use(fileUpload())
 //     })
 //   );
 
+
 app.use(
   cors({
-    origin: process.env.NODE_ENV === 'production' ? 'https://mern-ecom-6pp1-wg85.vercel.app/' : 'http://localhost:5173',
-    credentials: true,
+    origin: process.env.NODE_ENV === 'production' 
+      ? 'https://mern-ecom-6pp1-wg85.vercel.app'  // Production frontend URL
+      : 'http://localhost:5173',  // Local development URL
+    credentials: true,  // Allow cookies to be sent
   })
 );
 
