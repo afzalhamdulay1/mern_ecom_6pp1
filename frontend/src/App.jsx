@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux'
 import { api } from './services/api'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
-import Loader from './components/layout/Loader/Loader'
+import Loader from './components/Layout/Loader/Loader'
 import ScrollToTop from './utils/ScrollToTop'
 
 function App() {

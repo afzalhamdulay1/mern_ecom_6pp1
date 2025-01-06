@@ -4,7 +4,7 @@ import "./Home.css";
 import ProductCard from "./ProductCard";
 import MetaData from "../Layout/MetaData";
 import { useSelector, useDispatch } from "react-redux";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Layout/Loader/Loader";
 import { toast } from "react-toastify";
 import { getProducts, clearErrors } from "../../features/products/productsSlice"; // Updated import
 

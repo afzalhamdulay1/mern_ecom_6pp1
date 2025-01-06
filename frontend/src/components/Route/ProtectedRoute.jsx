@@ -3,7 +3,7 @@
 // import { useNavigate } from 'react-router-dom';
 // import { clearErrors } from '../../features/user/userSlice'
 // import { toast } from 'react-toastify';
-// import Loader from '../layout/Loader/Loader';
+// import Loader from '../Layout/Loader/Loader';
 
 // export default function ProtectedRoute({ children, authentication = true, admin = false }) {
 //     const navigate = useNavigate();
@@ -45,7 +45,7 @@
 // import { useNavigate } from 'react-router-dom';
 // import { clearErrors } from '../../features/user/userSlice'
 // import { toast } from 'react-toastify';
-// import Loader from '../layout/Loader/Loader';
+// import Loader from '../Layout/Loader/Loader';
 
 // export default function ProtectedRoute({ children, authentication = true, admin = false }) {
 //     const navigate = useNavigate();
@@ -84,7 +84,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearErrors } from "../../features/user/userSlice";
 import { toast } from "react-toastify";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Layout/Loader/Loader";
 
 // The ProtectedRoute component is used to wrap the admin routes
 export default function ProtectedRoute({ children, authentication = true, admin = false }) {

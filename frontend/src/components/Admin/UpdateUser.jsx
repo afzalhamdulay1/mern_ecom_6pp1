@@ -7,7 +7,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import SideBar from "./Sidebar";
 import { getUserDetails, clearErrors, updateUser, resetUserState } from "../../features/user/userSlice";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Layout/Loader/Loader";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
 

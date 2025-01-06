@@ -5,7 +5,7 @@ import MetaData from "../Layout/MetaData";
 import { Link, useParams } from "react-router-dom";
 import { Typography } from "@mui/material";
 import { getOrderDetails, clearErrors } from "../../features/order/orderSlice"; // Adjust path as per your project structure
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Layout/Loader/Loader";
 import { toast } from "react-toastify";
 
 const OrderDetails = () => {

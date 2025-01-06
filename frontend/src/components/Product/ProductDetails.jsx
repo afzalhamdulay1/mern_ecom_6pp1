@@ -9,7 +9,7 @@ import {
   clearErrors,
 } from "../../features/products/productSlice";
 import ReviewCard from "./ReviewCard";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Layout/Loader/Loader";
 import { toast } from "react-toastify";
 import MetaData from "../Layout/MetaData";
 import { addItem } from "../../features/cart/cartSlice";

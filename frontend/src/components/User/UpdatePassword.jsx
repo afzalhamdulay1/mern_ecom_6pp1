@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./UpdatePassword.css";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Layout/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { updatePassword, clearErrors, resetUpdateProfile } from "../../features/user/userSlice";

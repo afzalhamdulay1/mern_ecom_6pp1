@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import "./MyOrders.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getMyOrders } from "../../features/order/orderSlice";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Layout/Loader/Loader";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Typography from "@mui/material/Typography";

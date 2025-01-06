@@ -10,7 +10,7 @@ import {
   resetOrderState
 } from "../../features/order/orderSlice";
 import { useSelector, useDispatch } from "react-redux";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Layout/Loader/Loader";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import { Button } from "@mui/material";
 // import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";

@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./ResetPassword.css";
-import Loader from "../layout/Loader/Loader";
+import Loader from "../Layout/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { resetPassword, clearErrors, clearSuccess } from "../../features/user/userSlice";
 import { toast } from "react-toastify";

@@ -15,7 +15,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SideBar from "./Sidebar.jsx";
 import { toast } from "react-toastify";
 import { deleteProduct, resetProductState } from "../../features/products/productSlice.js";
-import Loader from "../layout/Loader/Loader.jsx";
+import Loader from "../Layout/Loader/Loader.jsx";
 
 const ProductsList = () => {
   const dispatch = useDispatch();
