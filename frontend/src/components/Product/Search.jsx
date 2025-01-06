@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import MetaData from "../layout/MetaData";
+import MetaData from "../Layout/MetaData";
 import "./Search.css";
 
 const Search = () => {
