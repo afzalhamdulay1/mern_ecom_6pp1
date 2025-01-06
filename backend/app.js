@@ -24,10 +24,12 @@ app.use(fileUpload())
 //     })
 //   );
 
-cors({
-  origin: req.headers.origin,
-  credentials: true,
-});
+app.use(
+  cors({
+    origin: req.headers.origin,
+    credentials: true,
+  });
+)
 
 // route imports
 const product = require('./routes/productRoutes')
