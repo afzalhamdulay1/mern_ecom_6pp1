@@ -20,14 +20,14 @@ app.use(fileUpload())
 // app.use(cors());
 
 
-app.use(
-  cors({
-    origin: process.env.NODE_ENV === 'production' 
-      ? 'https://mern-ecom-6pp1-wg85-7uifsa4n5-afzals-projects-6b32063b.vercel.app'  
-      : 'http://localhost:5173',  // Local development URL
-    credentials: true,  // Allow cookies to be sent
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.NODE_ENV === 'production' 
+//       ? 'https://mern-ecom-6pp1-wg85-7uifsa4n5-afzals-projects-6b32063b.vercel.app'  
+//       : 'http://localhost:5173',  // Local development URL
+//     credentials: true,  // Allow cookies to be sent
+//   })
+// );
 
 // route imports
 const product = require('./routes/productRoutes')
