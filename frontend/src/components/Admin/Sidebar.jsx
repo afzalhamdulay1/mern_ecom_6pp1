@@ -1,5 +1,5 @@
 import React from "react";
-import "./sidebar.css";
+import "./Sidebar.css";
 import logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
