@@ -9,7 +9,7 @@ import {
   resetReviewState,
 } from "../../features/review/reviewSlice";
 import { Button } from "@mui/material";
-import MetaData from "../layout/MetaData";
+import MetaData from "../Layout/MetaData";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Star from "@mui/icons-material/Star";
 import SideBar from "./Sidebar";

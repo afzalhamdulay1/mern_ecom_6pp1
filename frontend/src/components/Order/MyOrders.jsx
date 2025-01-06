@@ -7,7 +7,7 @@ import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Typography from "@mui/material/Typography";
-import MetaData from "../layout/MetaData";
+import MetaData from "../Layout/MetaData";
 import LaunchIcon from "@mui/icons-material/Launch";
 
 const MyOrders = () => {

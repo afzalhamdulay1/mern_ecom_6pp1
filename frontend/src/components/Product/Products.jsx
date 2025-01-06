@@ -1,7 +1,7 @@
 // import React, { Fragment, useEffect, useState } from "react";
 // import "./Products.css";
 // import ProductCard from "../Home/ProductCard";
-// import MetaData from "../layout/MetaData";
+// import MetaData from "../Layout/MetaData";
 // import { useSelector, useDispatch } from "react-redux";
 // import Loader from "../layout/Loader/Loader";
 // import Pagination from "react-js-pagination";
@@ -174,7 +174,7 @@
 // import React, { Fragment, useEffect, useState } from "react";
 // import "./Products.css";
 // import ProductCard from "../Home/ProductCard";
-// import MetaData from "../layout/MetaData";
+// import MetaData from "../Layout/MetaData";
 // import { useSelector, useDispatch } from "react-redux";
 // import Loader from "../layout/Loader/Loader";
 // import Pagination from "react-js-pagination";
@@ -341,7 +341,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./Products.css";
 import ProductCard from "../Home/ProductCard";
-import MetaData from "../layout/MetaData";
+import MetaData from "../Layout/MetaData";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import Pagination from "react-js-pagination";

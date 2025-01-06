@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAdminProducts } from "../../features/products/productsSlice.js";
 import { getAllOrders } from "../../features/order/orderSlice.js";
 import { getAllUsers } from "../../features/user/userSlice.js";
-import MetaData from "../layout/MetaData";
+import MetaData from "../Layout/MetaData";
 
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, PointElement, LineElement } from "chart.js";
 

@@ -11,7 +11,7 @@ import {
 import ReviewCard from "./ReviewCard";
 import Loader from "../layout/Loader/Loader";
 import { toast } from "react-toastify";
-import MetaData from "../layout/MetaData";
+import MetaData from "../Layout/MetaData";
 import { addItem } from "../../features/cart/cartSlice";
 import { Dialog, DialogActions, DialogContent, DialogTitle, Button, Rating } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";

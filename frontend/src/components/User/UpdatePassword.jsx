@@ -4,7 +4,7 @@ import Loader from "../layout/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { updatePassword, clearErrors, resetUpdateProfile } from "../../features/user/userSlice";
-import MetaData from "../layout/MetaData";
+import MetaData from "../Layout/MetaData";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import LockIcon from "@mui/icons-material/Lock";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";

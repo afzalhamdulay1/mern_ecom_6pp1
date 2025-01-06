@@ -9,7 +9,7 @@ import {
 } from "../../features/products/productsSlice.js";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-import MetaData from "../layout/MetaData.jsx";
+import MetaData from "../Layout/MetaData.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SideBar from "./Sidebar.jsx";

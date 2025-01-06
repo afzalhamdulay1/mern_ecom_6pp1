@@ -5,7 +5,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotPassword, clearErrors, clearMessage } from "../../features/user/userSlice";
 import { toast } from "react-toastify";
-import MetaData from "../layout/MetaData";
+import MetaData from "../Layout/MetaData";
 
 const ForgotPassword = () => {
   const dispatch = useDispatch();

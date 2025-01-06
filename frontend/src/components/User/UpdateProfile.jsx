@@ -5,7 +5,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import FaceIcon from "@mui/icons-material/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, updateProfile, resetUpdateProfile } from "../../features/user/userSlice";
-import MetaData from "../layout/MetaData";
+import MetaData from "../Layout/MetaData";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import dummyProfile from '../../images/Profile.png'
