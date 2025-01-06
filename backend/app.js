@@ -23,7 +23,7 @@ app.use(fileUpload())
 app.use(
   cors({
     origin: process.env.NODE_ENV === 'production' 
-      ? 'mern-ecom-6pp1-wg85-7uifsa4n5-afzals-projects-6b32063b.vercel.app'  
+      ? 'https://mern-ecom-6pp1-wg85-7uifsa4n5-afzals-projects-6b32063b.vercel.app'  
       : 'http://localhost:5173',  // Local development URL
     credentials: true,  // Allow cookies to be sent
   })
