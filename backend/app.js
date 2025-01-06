@@ -17,22 +17,17 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(fileUpload())
+app.use(cors());
+
+
 // app.use(
-//     cors({
-//       origin: 'http://localhost:5173', // Your frontend URL
-//       credentials: true, // Allow cookies to be sent
-//     })
-//   );
-
-
-app.use(
-  cors({
-    origin: process.env.NODE_ENV === 'production' 
-      ? 'https://mern-ecom-6pp1-wg85.vercel.app/'  // Production frontend URL
-      : 'http://localhost:5173',  // Local development URL
-    credentials: true,  // Allow cookies to be sent
-  })
-);
+//   cors({
+//     origin: process.env.NODE_ENV === 'production' 
+//       ? 'https://mern-ecom-6pp1-wg85.vercel.app/'  // Production frontend URL
+//       : 'http://localhost:5173',  // Local development URL
+//     credentials: true,  // Allow cookies to be sent
+//   })
+// );
 
 // route imports
 const product = require('./routes/productRoutes')
