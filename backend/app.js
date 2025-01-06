@@ -17,14 +17,12 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(fileUpload())
-// app.use(cors());
+app.use(cors());
 
 
 // app.use(
 //   cors({
-//     origin: process.env.NODE_ENV === 'production' 
-//       ? 'https://mern-ecom-6pp1-wg85-7uifsa4n5-afzals-projects-6b32063b.vercel.app'  
-//       : 'http://localhost:5173',  // Local development URL
+//     origin: 'https://ecom1-mern.netlify.app/',
 //     credentials: true,  // Allow cookies to be sent
 //   })
 // );
