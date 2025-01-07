@@ -414,7 +414,7 @@ const Products = () => {
   let count = filteredProductsCount;
 
   return (
-    <div className="w-full h-[130vh]">
+    <div class="w-full h-auto min-h-full md:h-[130vh]">
       <Fragment>
         {loading ? (
           <Loader />
