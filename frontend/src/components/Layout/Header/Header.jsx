@@ -138,7 +138,7 @@ function Header() {
                   <li key={item.name} className="mb-4 lg:mb-0">
                     <NavLink
                       to={item.slug}
-                      className="block px-4 py-2 text-white rounded-md hover:bg-red-500 duration-200"
+                      className="block px-4 py-2 text-white rounded-md hover:bg-red-500 duration-200 headerLink"
                       onClick={() => setMenuOpen(false)} // Close menu on link click
                     >
                       {item.name}
