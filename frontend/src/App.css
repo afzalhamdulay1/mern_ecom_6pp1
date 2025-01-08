@@ -33,5 +33,6 @@
 
   .headerLink.active{
     background-color: white !important;
+    color: tomato !important
   }
   
