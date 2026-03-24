@@ -3,7 +3,16 @@ import { DataGrid } from "@mui/x-data-grid";
 import "./ProductsList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { 
+  Button, 
+  Typography, 
+  Box, 
+  Chip, 
+  IconButton, 
+  Tooltip, 
+  Paper,
+  Breadcrumbs
+} from "@mui/material";
 import MetaData from "../Layout/MetaData";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -15,6 +24,7 @@ import {
   resetDeleteState
 } from "../../features/order/orderSlice";
 import { toast } from "react-toastify";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const OrdersList = () => {
   const dispatch = useDispatch();
@@ -45,64 +55,108 @@ const OrdersList = () => {
   }, [dispatch, toast, navigate, isDeleted]);
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
-
+    { field: "id", headerName: "Order ID", minWidth: 200, flex: 0.6 },
+    {
+      field: "date",
+      headerName: "Order Date",
+      type: "dateTime",
+      minWidth: 150,
+      flex: 0.4,
+      renderCell: (params) => (
+        <Typography variant="body2" sx={{ color: "#64748b" }}>
+          {new Date(params.value).toLocaleDateString('en-IN', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+          })}
+        </Typography>
+      )
+    },
     {
       field: "status",
       headerName: "Status",
       minWidth: 150,
-      flex: 0.5,
-      cellClassName: (params) => {
-        return params.row.status === "Delivered"
-          ? "greenColor"
-          : "redColor";
-      },
+      flex: 0.4,
+      renderCell: (params) => {
+        const status = params.value;
+        let color = "default";
+        if (status === "Delivered") color = "success";
+        else if (status === "Processing") color = "warning";
+        else color = "primary";
+
+        return (
+          <Chip 
+            label={status}
+            color={color}
+            variant="soft"
+            size="small"
+            sx={{ fontWeight: 600, minWidth: '95px' }}
+          />
+        );
+      }
     },
     {
       field: "itemsQty",
-      headerName: "Items Qty",
+      headerName: "Items",
       type: "number",
-      minWidth: 150,
-      flex: 0.4,
+      minWidth: 100,
+      flex: 0.3,
+      renderCell: (params) => (
+        <Typography variant="body2" sx={{ color: "#334155" }}>
+          {params.value} Pack(s)
+        </Typography>
+      )
     },
-
     {
       field: "amount",
-      headerName: "Amount",
+      headerName: "Total Amount",
       type: "number",
-      minWidth: 270,
+      minWidth: 170,
       flex: 0.5,
+      renderCell: (params) => (
+        <Typography variant="body2" sx={{ fontWeight: 700, color: "#0f172a" }}>
+          ₹{params.value.toLocaleString()}
+        </Typography>
+      )
     },
-
     {
       field: "actions",
-      flex: 0.3,
+      flex: 0.4,
       headerName: "Actions",
-      minWidth: 150,
-      type: "number",
+      minWidth: 120,
       sortable: false,
+      align: 'right',
+      headerAlign: 'right',
       renderCell: (params) => {
         return (
-          <Fragment>
-            <Link to={`/admin/order/${params.row.id}`}>
-              <EditIcon />
-            </Link>
+          <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', width: '100%', pr: 1 }}>
+            <Tooltip title="Process Order">
+                <IconButton 
+                    component={Link} 
+                    to={`/admin/order/${params.row.id}`}
+                    size="small"
+                    sx={{ color: '#6366f1', background: '#eef2ff', '&:hover': { background: '#e0e7ff' } }}
+                >
+                    <EditIcon fontSize="small" />
+                </IconButton>
+            </Tooltip>
 
-            <Button
-              onClick={() =>
-                deleteOrderHandler(params.row.id)
-              }
-            >
-              <DeleteIcon />
-            </Button>
-          </Fragment>
+            <Tooltip title="Delete Order">
+                <IconButton 
+                    onClick={() => deleteOrderHandler(params.row.id)}
+                    size="small"
+                    sx={{ color: '#ef4444', background: '#fef2f2', '&:hover': { background: '#fee2e2' } }}
+                >
+                    <DeleteIcon fontSize="small" />
+                </IconButton>
+            </Tooltip>
+          </Box>
         );
       },
     },
   ];
 
   const rows = [];
-
   orders &&
     orders.forEach((item) => {
       rows.push({
@@ -110,6 +164,7 @@ const OrdersList = () => {
         itemsQty: item.orderItems.length,
         amount: item.totalPrice,
         status: item.orderStatus,
+        date: new Date(item.createdAt),
       });
     });
 
@@ -120,16 +175,37 @@ const OrdersList = () => {
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL ORDERS</h1>
+          <Box className="headerSection">
+            <Box>
+                <Typography variant="h6" className="pageHeading">
+                    Financial Orders
+                </Typography>
+                <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
+                    <Link to="/admin/dashboard" className="breadcrumbLink">Admin</Link>
+                    <Typography color="text.primary" fontSize="0.875rem">Orders</Typography>
+                </Breadcrumbs>
+            </Box>
+          </Box>
 
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            className="productListTable"
-            autoHeight
-          />
+          <Paper elevation={0} className="productListTableContainer">
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={10}
+              disableSelectionOnClick
+              className="productListTable"
+              autoHeight
+              rowHeight={60}
+              sx={{
+                "& .MuiDataGrid-columnHeaderTitle": {
+                  fontSize: "1.125rem !important",
+                  fontWeight: "700 !important",
+                  textTransform: "capitalize !important",
+                  color: "#1e293b !important",
+                }
+              }}
+            />
+          </Paper>
         </div>
       </div>
     </Fragment>
