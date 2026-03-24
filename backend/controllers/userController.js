@@ -312,8 +312,10 @@ exports.deleteUser = catchAsyncError(async (req, res, next) => {
         return next(new ErrorHandler(`User does not exists with id: ${req.params.id}`))
     }
 
-    if(user.email === "afzalhamdulay1@gmail.com") {
-        return next(new ErrorHandler(`cannot delete the main admin user`))
+    const protectedEmails = ["afzalhamdulay1@gmail.com", "afzal@gmail.com"];
+    
+    if (protectedEmails.includes(user.email)) {
+        return next(new ErrorHandler(`Cannot delete the main admin user`));
     }
     
 
