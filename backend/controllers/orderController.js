@@ -2,6 +2,8 @@ const Order = require('../models/orderModel');
 const Product = require('../models/productModel')
 const ErrorHandler = require('../utils/errorHandler')
 const catchAsyncError = require('../middlewares/catchAsyncErrors')
+const sendEmail = require("../utils/sendEmail");
+const generateInvoice = require("../utils/generateInvoice");
 
 // create new order
 
@@ -19,6 +21,27 @@ exports.createOrder = catchAsyncError(async (req, res, next) => {
         paidAt: Date.now(),
         user: req.user._id
     })
+
+    // Generate Invoice PDF
+    const invoiceBuffer = await generateInvoice(order, req.user);
+
+    // Send Email with PDF Attachment
+    try {
+        await sendEmail({
+            email: req.user.email,
+            subject: `Order Confirmation - #${order._id}`,
+            message: `Hi ${req.user.name},\n\nThank you for placing an order with us! Your order #${order._id} has been successfully placed. Please find your invoice attached.\n\nHappy Shopping!`,
+            attachments: [
+                {
+                    filename: `Invoice_${order._id}.pdf`,
+                    content: invoiceBuffer,
+                    contentType: "application/pdf",
+                },
+            ],
+        });
+    } catch (error) {
+        console.error("Error sending order confirmation email:", error);
+    }
 
     res.status(201).json({
         success: true,
