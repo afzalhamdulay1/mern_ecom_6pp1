@@ -1,110 +1,181 @@
 .orderDetailsPage {
-    background-color: white;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding: 4rem 10%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.orderDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.orderDetailsSection {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+}
+
+.orderDetailsSection > .MuiTypography-h1 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  border-left: 5px solid rgb(248 113 113);
+  padding-left: 1rem;
+}
+
+.orderDetailsSection > .MuiTypography-h6 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  border-left: 5px solid rgb(248 113 113);
+  padding-left: 1rem;
+}
+
+.orderDetailsContainerBox > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.orderDetailsContainerBox > div > p {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  color: #475569;
+  min-width: 100px;
+  margin: 0;
+}
+
+.orderDetailsContainerBox > div > span {
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.greenColor {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.redColor {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.orderDetailsCartItemsContainer {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.orderDetailsCartItemsContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.orderDetailsCartItemsContainer::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.orderDetailsCartItemsContainer > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.orderDetailsCartItemsContainer > div:last-child {
+  border-bottom: none;
+}
+
+.orderDetailsCartItemsContainer > div > img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background-color: #f8fafc;
+  border-radius: 1rem;
+}
+
+.orderDetailsCartItemsContainer > div > a {
+  flex: 1;
+  color: #1e293b;
+  margin: 0 2rem;
+  text-decoration: none;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.orderDetailsCartItemsContainer > div > a:hover {
+  color: rgb(248 113 113);
+}
+
+.orderDetailsCartItemsContainer > div > span {
+  font-family: "Outfit", sans-serif;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.orderDetailsCartItemsContainer > div > span > b {
+  color: #1a1a1a;
+  font-weight: 800;
+  margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .orderDetailsPage {
+    padding: 3rem 5%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .orderDetailsPage {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .orderDetailsPage {
+    padding: 2rem 5%;
+    gap: 1.5rem;
   }
   
-  .orderDetailsContainer > h1 {
-    font: 300 3vmax "Roboto";
-    margin: 4vmax 0;
-    color: rgb(248 113 113);
+  .orderDetailsSection {
+    padding: 2rem;
   }
   
-  .orderDetailsContainer {
-    padding: 5vmax;
-    padding-bottom: 0%;
-  }
-  
-  .orderDetailsContainer > p {
-    font: 400 1.8vmax "Roboto";
-  }
-  
-  .orderDetailsContainerBox,
-  .orderDetailsCartItemsContainer {
-    margin: 2vmax;
-  }
-  
-  .orderDetailsContainerBox > div {
-    display: flex;
-    margin: 1vmax 0;
-  }
-  
-  .orderDetailsContainerBox > div > p {
-    font: 400 1vmax "Roboto";
-    color: black;
-  }
-  .orderDetailsContainerBox > div > span {
-    margin: 0 1vmax;
-    font: 100 1vmax "Roboto";
-    color: #575757;
-  }
-  
-  .orderDetailsCartItems > p {
-    font: 400 1.8vmax "Roboto";
-  }
-  
-  .orderDetailsCartItems {
-    padding: 2vmax 5vmax;
-    border-top: 1px solid rgba(0, 0, 0, 0.164);
+  .orderDetailsSection > .MuiTypography-h1,
+  .orderDetailsSection > .MuiTypography-h6 {
+    font-size: 1.25rem;
   }
   
   .orderDetailsCartItemsContainer > div {
-    display: flex;
-    font: 400 1vmax "Roboto";
-    align-items: center;
-    margin: 2vmax 0;
-  }
-  
-  .orderDetailsCartItemsContainer > div > img {
-    width: 3vmax;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
   }
   
   .orderDetailsCartItemsContainer > div > a {
-    color: #575757;
-    margin: 0 2vmax;
-    width: 60%;
-    text-decoration: none;
+    margin: 0;
+    order: 2;
   }
   
-  .orderDetailsCartItemsContainer > div > span {
-    font: 100 1vmax "Roboto";
-    color: #5e5e5e;
+  .orderDetailsCartItemsContainer > div > img {
+    order: 1;
   }
-  
-  @media screen and (max-width: 600px) {
-    .orderDetailsContainer > p {
-      font: 400 6vw "Roboto";
-    }
-  
-    .orderDetailsContainerBox > div {
-      margin: 6vw 0;
-    }
-  
-    .orderDetailsContainerBox > div > p {
-      font: 400 4vw "Roboto";
-    }
-    .orderDetailsContainerBox > div > span {
-      font: 100 4vw "Roboto";
-    }
-  
-    .orderDetailsCartItems > p {
-      font: 400 6vw "Roboto";
-    }
-  
-    .orderDetailsCartItemsContainer > div {
-      font: 400 4vw "Roboto";
-      margin: 4vw 0;
-    }
-  
-    .orderDetailsCartItemsContainer > div > img {
-      width: 10vw;
-    }
-  
-    .orderDetailsCartItemsContainer > div > a {
-      margin: 2vw;
-      width: 30%;
-    }
-  
-    .orderDetailsCartItemsContainer > div > span {
-      font: 100 4vw "Roboto";
-    }
-  }
+}
   
