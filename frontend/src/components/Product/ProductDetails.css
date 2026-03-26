@@ -1,328 +1,432 @@
 .ProductDetails {
-    background-color: rgb(255, 255, 255);
-    width: 100vw;
-    max-width: 100%;
-    padding: 6vmax;
-    box-sizing: border-box;
-    display: flex;
-  }
-  
-  .ProductDetails > div {
-    width: 100%;
-    display: flex;
+  background-color: #ffffff;
+  width: 100vw;
+  max-width: 100%;
+  padding: 4rem 5% 7rem 5%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.ProductDetails>div {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Carousel Styles */
+.CarouselImage {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 1.5rem;
+}
+
+.carousel-root {
+  width: 100% !important;
+}
+
+.carousel .slide {
+  background: transparent !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsBlock-1 {
+  margin-bottom: 1rem;
+}
+
+.detailsBlock-1>h2 {
+  color: #1a1a1a;
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.detailsBlock-1>p {
+  color: #94a3b8;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.detailsBlock-2 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0.8rem 0;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  width: 100%;
+}
+
+.detailsBlock-2-span {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.detailsBlock-3 {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.detailsBlock-3>h1 {
+  color: #1a1a1a;
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.detailsBlock-3-1 {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailsBlock-3-1-1 {
+  display: flex;
+  align-items: center;
+  background-color: #f8fafc;
+  padding: 5px;
+  border-radius: 50px;
+  border: 1px solid #e2e8f0;
+}
+
+.detailsBlock-3-1-1>button {
+  border: none;
+  background-color: #ffffff;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: #1a1a1a;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.detailsBlock-3-1-1>button:hover {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.detailsBlock-3-1-1>input {
+  border: none;
+  width: 50px;
+  background: transparent;
+  text-align: center;
+  outline: none;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+}
+
+/* Hide spin buttons */
+.detailsBlock-3-1-1>input::-webkit-outer-spin-button,
+.detailsBlock-3-1-1>input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.detailsBlock-3-1>button:last-child {
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgb(248 113 113);
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 50px;
+  padding: 1rem 3rem;
+  outline: none;
+  box-shadow: 0 10px 20px rgba(255, 99, 71, 0.2);
+}
+
+.detailsBlock-3-1>button:last-child:hover {
+  background-color: rgb(214, 84, 61);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(255, 99, 71, 0.3);
+}
+
+.detailsBlock-3>p {
+  padding: 1rem 0;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.greenColor {
+  color: #10b981 !important;
+  font-weight: 800;
+}
+
+.redColor {
+  color: #ef4444 !important;
+  font-weight: 800;
+}
+
+.detailsBlock-4 {
+  color: #1a1a1a;
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.detailsBlock-4>p {
+  color: #64748b;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.submitReview {
+  border: 1px solid #1a1a1a;
+  background-color: transparent;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  margin-top: 1.5rem;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.submitReview:hover {
+  background-color: #1a1a1a;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Reviews Styling */
+.reviewsHeading {
+  color: #1a1a1a;
+  font-family: "Outfit", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 1rem auto;
+  padding-bottom: 0.5rem;
+  width: fit-content;
+  position: relative;
+}
+
+.reviewsHeading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 5px;
+  background-color: rgb(248 113 113);
+  border-radius: 5px;
+}
+
+.reviews {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 2rem 5%;
+  padding-bottom: 4rem;
+}
+
+.reviews::-webkit-scrollbar {
+  height: 8px;
+}
+
+.reviews::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.reviews::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.reviewCard {
+  flex: 0 0 350px;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.reviewCard>img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewCard>p {
+  color: #1a1a1a;
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.reviewCardComment {
+  color: #64748b;
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.noReviews {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #94a3b8;
+  margin-bottom: 5rem;
+}
+
+.submitDialog {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem !important;
+  gap: 1.5rem;
+}
+
+.submitDialogTextArea {
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  outline: none;
+  padding: 1.25rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1e293b;
+  resize: none;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+}
+
+.submitDialogTextArea:focus {
+  border-color: rgb(248 113 113);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(235, 64, 52, 0.1);
+}
+
+/* MUI Dialog Customization */
+.MuiDialog-paper {
+  border-radius: 1.5rem !important;
+  padding: 1rem;
+}
+
+.MuiDialogTitle-root {
+  font-family: "Outfit", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 1.5rem !important;
+  color: #1a1a1a !important;
+}
+
+.MuiDialogActions-root {
+  padding: 1.5rem !important;
+  gap: 1rem;
+}
+
+.MuiDialogActions-root button {
+  font-family: "Outfit", sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  border-radius: 50px !important;
+  padding: 0.6rem 2rem !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Submit Button */
+.MuiDialogActions-root button:last-child {
+  background-color: rgb(248 113 113) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(235, 64, 52, 0.2) !important;
+}
+
+.MuiDialogActions-root button:last-child:hover {
+  background-color: rgb(214, 84, 61) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 15px rgba(235, 64, 52, 0.3) !important;
+}
+
+/* Cancel Button */
+.MuiDialogActions-root button:first-child {
+  color: #64748b !important;
+}
+
+.MuiDialogActions-root button:first-child:hover {
+  background-color: #f1f5f9 !important;
+  color: #1a1a1a !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .ProductDetails {
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
-    padding: 2vmax;
-    box-sizing: border-box;
-    border: 1px solid white;
+    gap: 3rem;
+    padding-top: 5rem;
   }
-  
-  .ProductDetails > div:last-child {
+
+  .ProductDetails>div {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .detailsBlock-1>h2 {
+    font-size: 1.8rem;
+  }
+
+  .detailsBlock-3-1 {
+    flex-direction: column;
     align-items: flex-start;
   }
-  
-  /* .CarouselImage {
-    width: 100vmax;
-  } */
 
-  .CarouselImage {
+  .detailsBlock-3-1>button:last-child {
     width: 100%;
-    max-height: 400px;
-    object-fit: contain; /* Ensures images maintain aspect ratio */
-  }
-  
-  .carousel .slide {
-    background: transparent; /* Remove default gray background */
   }
 
-  .carousel .control-arrow {
-    position: absolute;
-    top: 50% !important;
-    transform: translateY(-50%);
-    opacity: 1; /* Make arrows always visible */
-    z-index: 2; /* Ensure arrows appear above images */
-    background: rgba(0, 0, 0, 0.9) !important; /* Optional: Add a translucent background */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .carousel .control-prev {
-    left: 10px; /* Position left arrow closer to the image */
-  }
-  
-  .carousel .control-next {
-    right: 10px; /* Position right arrow closer to the image */
-  }
-  
-  .carousel .control-arrow:before {
-    font-size: 20px; /* Adjust arrow size */
-    color: white; /* Make arrow icons white */
-  }
-  
-  /* Optional: Show arrows only on hover */
-  .carousel:hover .control-arrow {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-  }
-  
-  .detailsBlock-1 > h2 {
-    color: rgb(54, 54, 54);
-    font: 600 1.6vmax "Roboto";
-  }
-  
-  .detailsBlock-1 > p {
-    color: rgba(54, 54, 54, 0.582);
-    font: 200 0.6vmax cursive;
-  }
-  
-  .detailsBlock-2 {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.205);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
-    width: 70%;
-    padding: 1vmax 0;
-  }
-  
-  .detailsBlock-2-span {
-    font: 200 0.8vmax cursive;
-    color: rgba(0, 0, 0, 0.699);
-  }
-  
-  .detailsBlock-3 {
-    width: 70%;
-  }
-  
-  .detailsBlock-3 > h1 {
-    color: rgba(17, 17, 17, 0.795);
-    font: 400 1.8vmax "Franklin Gothic Medium";
-    margin: 1vmax 0;
-  }
-  .detailsBlock-3-1 {
-    display: flex;
-    align-items: center;
-  }
-  
-  .detailsBlock-3-1-1 > button {
-    border: none;
-    background-color: rgba(0, 0, 0, 0.616);
-    padding: 0.5vmax;
-    cursor: pointer;
-    color: white;
-    transition: all 0.5s;
-  }
-  .detailsBlock-3-1-1 > button:hover {
-    background-color: rgba(0, 0, 0, 0.767);
-  }
-  
-  .detailsBlock-3-1-1 > input {
-    border: none;
-    padding: 0.5vmax;
-    width: 4vmax;
-    text-align: center;
-    outline: none;
-    font: 400 1.8vmax "Roboto";
-    color: rgba(0, 0, 0, 0.74);
-  }
-  
-  .detailsBlock-3-1 > button:last-child {
-    border: none;
-    cursor: pointer;
-    color: white;
-    transition: all 0.5s;
-    background-color: tomato;
-    font: 500 0.7vmax "Roboto";
-    border-radius: 20px;
-    padding: 0.5vmax 2vmax;
-    margin: 1vmax;
-    outline: none;
-  }
-  
-  .detailsBlock-3-1 > button:last-child:hover {
-    background-color: rgb(214, 84, 61);
-  }
-  
-  .detailsBlock-3 > p {
-    border-top: 1px solid rgba(0, 0, 0, 0.205);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
-    padding: 1vmax 0;
-    color: rgba(0, 0, 0, 0.651);
-    font: 400 1vmax "Roboto";
-    margin: 1vmax 0;
-  }
-  
-  .detailsBlock-4 {
-    color: rgba(0, 0, 0, 0.897);
-    font: 500 1.2vmax sans-serif;
-  }
-  
-  .detailsBlock-4 > p {
-    color: rgba(0, 0, 0, 0.534);
-    font: 300 0.8vmax sans-serif;
-  }
-  
-  .submitReview {
-    border: none;
-    background-color: tomato;
-    font: 500 0.7vmax "Roboto";
-    border-radius: 20px;
-    padding: 0.6vmax 2vmax;
-    margin: 1vmax 0;
-    color: white;
-    cursor: pointer;
-    transition: all 0.5s;
-    outline: none;
-  }
-  .submitReview:hover {
-    background-color: rgb(197, 68, 45);
-    transform: scale(1.1);
-  }
-  
-  .submitDialog {
-    display: flex;
-    flex-direction: column;
-  }
-  .submitDialogTextArea {
-    border: 1px solid rgba(0, 0, 0, 0.082);
-    margin: 1vmax 0;
-    outline: none;
-    padding: 1rem;
-    font: 300 1rem "Roboto";
-  }
-  
-  .reviewsHeading {
-    color: #000000be;
-    font: 500 1.4vmax "Roboto";
-    text-align: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.226);
-    padding: 1vmax;
-    width: 20vmax;
-    margin: auto;
-    margin-bottom: 4vmax;
-  }
-  .reviews {
-    display: flex;
-    overflow: auto;
-  }
-  
   .reviewCard {
-    flex: none;
-  
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
-    border: 1px solid rgba(56, 56, 56, 0.116);
-    width: 30vmax;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1vmax;
-    padding: 3vmax;
+    flex: 0 0 280px;
   }
-  .reviewCard > img {
-    width: 5vmax;
-  }
-  .reviewCard > p {
-    color: rgba(0, 0, 0, 0.836);
-    font: 600 0.9vmax "Roboto";
-  }
-  .reviewCardComment {
-    color: rgba(0, 0, 0, 0.445);
-    font: 300 0.8vmax cursive;
-  }
-  
-  .noReviews {
-    font: 400 1.3vmax "Gill Sans";
-    text-align: center;
-    color: rgba(0, 0, 0, 0.548);
-  }
-  
-  @media screen and (max-width: 600px) {
-    .ProductDetails {
-      flex-direction: column;
-      height: unset;
-    }
-  
-    .ProductDetails > div:last-child {
-      align-items: center;
-    }
-  
-    .detailsBlock-1 > h2 {
-      font-size: 2.8vmax;
-      text-align: center;
-    }
-  
-    .detailsBlock-1 > p {
-      text-align: center;
-      font-size: 1vmax;
-    }
-  
-    .detailsBlock-2 {
-      justify-content: center;
-    }
-    .detailsBlock-2 > span {
-      font-size: 1.5vmax;
-    }
-  
-    .detailsBlock-3 > h1 {
-      font: 700 3vmax "Franklin Gothic Medium";
-      text-align: center;
-    }
-  
-    .detailsBlock-3-1 {
-      flex-direction: column;
-    }
-  
-    .detailsBlock-3-1-1 {
-      padding: 2vmax 0;
-    }
-    .detailsBlock-3-1-1 > button {
-      padding: 1.2vmax;
-      width: 4vmax;
-    }
-  
-    .detailsBlock-3-1-1 > input {
-      padding: 1.5vmax;
-      width: 3vmax;
-      font: 400 1.8vmax "Roboto";
-    }
-  
-    .detailsBlock-3-1 > button:last-child {
-      font: 500 1.7vmax "Roboto";
-      padding: 1.5vmax;
-      width: 20vmax;
-      margin: 3vmax 0;
-    }
-  
-    .detailsBlock-3 > p {
-      padding: 2.5vmax 0;
-      text-align: center;
-      font: 400 2vmax "Roboto";
-    }
-  
-    .detailsBlock-4 {
-      font: 500 2.5vmax sans-serif;
-    }
-  
-    .detailsBlock-4 > p {
-      font: 300 1.8vmax sans-serif;
-    }
-  
-    .submitReview {
-      font: 500 1.7vmax "Roboto";
-      padding: 1.5vmax;
-      width: 20vmax;
-      margin: 3vmax 0;
-    }
-  
-    .reviewCard > p {
-      font: 600 3vw "Roboto";
-    }
-    .reviewCardComment {
-      font: 300 5vw cursive;
-    }
-  }
+}

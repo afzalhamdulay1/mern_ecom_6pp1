@@ -23,6 +23,8 @@ const CheckoutSteps = ({ activeStep }) => {
 
   const stepStyles = {
     boxSizing: "border-box",
+    marginTop: "5rem",
+    marginBottom: "2rem",
   };
 
   return (
@@ -36,7 +38,7 @@ const CheckoutSteps = ({ activeStep }) => {
           >
             <StepLabel
               style={{
-                color: activeStep >= index ? "tomato" : "rgba(0, 0, 0, 0.649)",
+                color: activeStep >= index ? "rgb(248 113 113)" : "rgba(0, 0, 0, 0.649)",
               }}
               icon={item.icon}
             >

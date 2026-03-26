@@ -107,7 +107,10 @@ const UpdateProfile = () => {
 
                 <div id="updateProfileImage">
                   <img src={avatarPreview} alt="Avatar Preview" />
+                  <label htmlFor="avatarFileInput">📷 Change Photo</label>
+                  <p>JPG, PNG or GIF · Max 2MB</p>
                   <input
+                    id="avatarFileInput"
                     type="file"
                     name="avatar"
                     accept="image/*"

@@ -9,7 +9,7 @@
       const options1 = {
           edit: false,
           color: "rgba(20,20,20,0.1)",
-          activeColor: "tomato",
+          activeColor: "rgb(248 113 113)",
           size: window.innerWidth > 600 ? 20 : 25,
           value: product.ratings,
           isHalf: true

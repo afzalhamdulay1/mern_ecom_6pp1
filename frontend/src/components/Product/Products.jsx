@@ -384,6 +384,7 @@ const Products = () => {
 
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleSubmit = () => {
@@ -414,7 +415,7 @@ const Products = () => {
   let count = filteredProductsCount;
 
   return (
-    <div class="w-full h-auto min-h-full sm:h-[130vh]">
+    <div className="ProductsPage">
       <Fragment>
         {loading ? (
           <Loader />
@@ -423,66 +424,68 @@ const Products = () => {
             <MetaData title="ECOMMERCE" />
 
             {products && products.length === 0 ? (
-              <div className="flex justify-center items-center h-full">
+              <div className="noProducts">
                 <h2>No Products Found</h2>
               </div>
             ) : (
               <Fragment>
-                <p>Total Products: {filteredProductsCount}</p>
-                <div className="container" id="container">
-                  {products &&
-                    products.map((product) => (
-                      <ProductCard key={product._id} product={product} />
-                    ))}
+                <div className="totalProductsText">
+                  Total Products: {filteredProductsCount}
+                </div>
+                
+                <div className="productsLayout">
+                  <div className="filterBox">
+                    <Typography>Price</Typography>
+                    <Slider
+                      value={price}
+                      onChange={(event, newPrice) => setPrice(newPrice)}
+                      valueLabelDisplay="auto"
+                      aria-labelledby="range-slider"
+                      min={0}
+                      max={250000}
+                    />
+
+                    <Typography>Categories</Typography>
+                    <ul className="categoryBox">
+                      {categories.map((cat) => (
+                        <li
+                          className={`category-link ${
+                            category === cat || (cat === "All" && category === "") ? "active" : ""
+                          }`}
+                          key={cat}
+                          onClick={() => setCategory(cat === "All" ? "" : cat)}
+                        >
+                          {cat}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <fieldset>
+                      <Typography component="legend">Ratings Above</Typography>
+                      <Slider
+                        value={ratings}
+                        onChange={(e, newRating) => setRatings(newRating)}
+                        aria-labelledby="continuous-slider"
+                        valueLabelDisplay="auto"
+                        min={0}
+                        max={5}
+                      />
+                    </fieldset>
+
+                    <Button variant="contained" className="applyFiltersBtn" onClick={handleSubmit}>
+                      Apply Filters
+                    </Button>
+                  </div>
+
+                  <div className="ProductsContainer">
+                    {products &&
+                      products.map((product) => (
+                        <ProductCard key={product._id} product={product} />
+                      ))}
+                  </div>
                 </div>
               </Fragment>
             )}
-
-            <div className="filterBox">
-              <Typography>Price</Typography>
-              <Slider
-                value={price}
-                onChange={(event, newPrice) => setPrice(newPrice)} // Update price state
-                valueLabelDisplay="auto"
-                aria-labelledby="range-slider"
-                min={0}
-                max={250000}
-              />
-
-              <Typography>Categories</Typography>
-              <ul className="categoryBox">
-                {categories.map((cat) => (
-                  <li
-                    className={`category-link ${
-                      category === cat || (cat === "All" && category === "") ? "active" : ""
-                    }`}
-                    key={cat}
-                    onClick={() => setCategory(cat === "All" ? "" : cat)}
-                  >
-                    {cat}
-                  </li>
-                ))}
-              </ul>
-
-              <fieldset>
-                <Typography component="legend">Ratings Above</Typography>
-                <Slider
-                  value={ratings}
-                  onChange={(e, newRating) => setRatings(newRating)} // Update ratings state
-                  aria-labelledby="continuous-slider"
-                  valueLabelDisplay="auto"
-                  min={0}
-                  max={5}
-                />
-              </fieldset>
-
-              {/* Submit Button */}
-              <div className="submit-button-container" style={{ textAlign: "center", marginTop: "1rem" }}>
-                <Button variant="contained" color="primary" onClick={handleSubmit}>
-                  Apply Filters
-                </Button>
-              </div>
-            </div>
 
             {resultPerPage < count && (
               <div className="paginationBox">

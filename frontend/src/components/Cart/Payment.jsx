@@ -121,23 +121,26 @@ const Payment = () => {
       <MetaData title="Payment" />
       <CheckoutSteps activeStep={2} />
       <div className="paymentContainer">
-        <h2 className="text-red-600">
-          Please dont use your real debit/credit. This is a real payment system.
-          The amount will be deducted from your account. And if I recieve any
-          money, I wont give it back! Just kidding 😂, contact me through mail:{" "}
-          afzalhamdulay.work@gmail.com if things go wrong😉.
-        </h2>
-        <p className="text-yellow-600">
-          Use this fake card number for payment testing: 5555 0503 6000 0007
-        </p>
-        <p className="text-yellow-600">
-          Enter any valid month and year which is not yet passed
-        </p>
-        <p className="text-yellow-600">
-          Enter any random CVC code and it work
-        </p>
+        <div className="paymentInfoBox">
+          <h2 style={{ color: "red", marginBottom: "1rem" }}>
+            Please dont use your real debit/credit. This is a real payment system.
+            The amount will be deducted from your account. And if I recieve any
+            money, I wont give it back! Just kidding 😂, contact me through mail:{" "}
+            afzalhamdulay.work@gmail.com if things go wrong😉.
+          </h2>
+          <p style={{ color: "rgb(248 113 113)", marginBottom: "0.5rem" }}>
+            Use this fake card number for payment testing: 5555 0503 6000 0007
+          </p>
+          <p style={{ color: "rgb(248 113 113)", marginBottom: "0.5rem" }}>
+            Enter any valid month and year which is not yet passed
+          </p>
+          <p style={{ color: "rgb(248 113 113)", marginBottom: "0.5rem" }}>
+            Enter any random CVC code and it will work
+          </p>
+        </div>
+
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-          <Typography>Card Info</Typography>
+          <p>Card Info</p>
 
           <div>
             <CreditCardIcon />

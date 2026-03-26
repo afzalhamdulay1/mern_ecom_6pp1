@@ -44,7 +44,7 @@ const ConfirmOrder = () => {
       <div className="confirmOrderPage">
         <div>
           <div className="confirmshippingArea">
-            <Typography>Shipping Info</Typography>
+            <p>Shipping Info</p>
             <div className="confirmshippingAreaBox">
               <div>
                 <p>Name:</p>
@@ -61,7 +61,7 @@ const ConfirmOrder = () => {
             </div>
           </div>
           <div className="confirmCartItems">
-            <Typography>Your Cart Items:</Typography>
+            <p>Your Cart Items:</p>
             <div className="confirmCartItemsContainer">
               {cartItems &&
                 cartItems.map((item) => (
@@ -79,11 +79,11 @@ const ConfirmOrder = () => {
             </div>
           </div>
         </div>
-        {/*  */}
-        <div>
+        
+        <div className="orderSummaryContainer">
           <div className="orderSummary">
-            <Typography>Order Summery</Typography>
-            <div>
+            <p>Order Summary</p>
+            <div className="orderSummaryBox">
               <div>
                 <p>Subtotal:</p>
                 <span>₹{subtotal}</span>
@@ -93,15 +93,13 @@ const ConfirmOrder = () => {
                 <span>₹{shippingCharges}</span>
               </div>
               <div>
-                <p>GST:</p>
+                <p>GST (18%):</p>
                 <span>₹{tax}</span>
               </div>
             </div>
 
             <div className="orderSummaryTotal">
-              <p>
-                <b>Total:</b>
-              </p>
+              <p>Total:</p>
               <span>₹{totalPrice}</span>
             </div>
 

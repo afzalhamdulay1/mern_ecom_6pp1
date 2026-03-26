@@ -1,117 +1,223 @@
-.productsHeading {
-    margin: 2vmax auto;
-    width: 15vw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
-    padding: 2vmax;
-    color: rgba(0, 0, 0, 0.678);
-    font: 500 1.5vmax "Roboto";
-    text-align: center;
-  }
-  
-  .products {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 5vmax;
-    justify-content: center;
-    min-height: 30vh;
-  }
-  
-  .paginationBox {
-    display: flex;
-    justify-content: center;
-    margin: 6vmax;
-  }
-  
+.ProductsPage {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  padding: 4rem 5%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.totalProductsText {
+  font-family: "Outfit", sans-serif;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  text-align: right;
+  width: 100%;
+}
+
+.productsLayout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+/* Products Grid Container matches Home page design */
+.ProductsContainer {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 3rem;
+  width: 100%;
+}
+
+/* Filter Box Sidebar */
+.filterBox {
+  width: 280px;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.filterBox p, .filterBox .MuiTypography-root {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.categoryBox {
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.category-link {
+  list-style: none;
+  font-family: "Outfit", sans-serif;
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.category-link:hover {
+  color: rgb(248 113 113);
+  background-color: #fff1f0;
+}
+
+.category-link.active {
+  color: white;
+  background-color: rgb(248 113 113);
+  font-weight: 700;
+}
+
+.filterBox fieldset {
+  border: 1px solid #f1f5f9;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.filterBox fieldset legend {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  color: #1a1a1a;
+  padding: 0 0.5rem;
+}
+
+.applyFiltersBtn {
+  width: 100%;
+  border-radius: 50px !important;
+  padding: 0.8rem !important;
+  text-transform: none !important;
+  font-weight: 700 !important;
+  font-family: "Outfit", sans-serif !important;
+  background-color: rgb(248 113 113) !important;
+  box-shadow: 0 10px 15px -3px rgba(235, 64, 52, 0.2) !important;
+}
+
+/* Pagination Modern Design */
+.paginationBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+  margin-top: auto;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.page-item {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.page-item:hover {
+  border-color: rgb(248 113 113);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(235, 64, 52, 0.2);
+}
+
+.page-item:hover .page-link {
+  color: rgb(248 113 113);
+}
+
+.page-link {
+  text-decoration: none;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #475569;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageItemActive {
+  background-color: rgb(248 113 113) !important;
+  border-color: rgb(248 113 113) !important;
+  box-shadow: 0 10px 15px -3px rgba(235, 64, 52, 0.3) !important;
+  transform: translateY(-3px);
+}
+
+.pageItemActive .page-link {
+  color: #ffffff !important;
+}
+
+@media screen and (max-width: 600px) {
   .pagination {
-    display: flex;
-    justify-content: center;
-    padding: 0;
+    gap: 6px;
   }
-  
   .page-item {
-    background-color: rgb(255, 255, 255);
-    list-style: none;
-    border: 1px solid rgba(0, 0, 0, 0.178);
-    padding: 1vmax 1.5vmax;
-    transition: all 0.3s;
-    cursor: pointer;
-  }
-  .page-item:first-child {
-    border-radius: 5px 0 0 5px;
-  }
-  
-  .page-item:last-child {
-    border-radius: 0 5px 5px 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
   }
   .page-link {
-    text-decoration: none;
-    font: 300 0.7vmax "Roboto";
-    color: rgb(80, 80, 80);
-    transition: all 0.3s;
+    font-size: 0.85rem;
   }
-  
-  .page-item:hover {
-    background-color: rgb(230, 230, 230);
-  }
-  
-  .page-item:hover .page-link {
-    color: rgb(0, 0, 0);
-  }
-  
-  .pageItemActive {
-    background-color: tomato;
-  }
-  
-  .pageLinkActive {
-    color: white;
-  }
-  
-  .filterBox {
-    width: 10vmax;
-    position: absolute;
-    top: 10vmax;
-    left: 4vmax;
-  }
-  
-  .categoryBox {
-    padding: 0%;
-  }
-  
-  .category-link {
-    list-style: none;
-    color: rgba(0, 0, 0, 0.61);
-    font: 400 0.8vmax "Roboto";
-    margin: 0.4vmax;
-    cursor: pointer;
-    transition: all 0.5s;
-    padding: 3px 5px;
-  }
-  .category-link:hover {
-    color: tomato;
-  }
-  
-  .filterBox > fieldset {
-    border: 1px solid rgba(0, 0, 0, 0.329);
-  }
+}
 
-  
-  .category-link.active {
-    color: white;
-    background-color: tomato; /* Active background color */
-    border-radius: 4px;
+/* Error / No Products Found */
+.noProducts {
+  text-align: center;
+  padding: 10rem 0;
+  width: 100%;
+}
+
+.noProducts h2 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  color: #cbd5e1;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+  .productsLayout {
+    flex-direction: column;
+    align-items: stretch;
   }
-  
-  @media screen and (max-width: 600px) {
-    .filterBox {
-      width: 20vmax;
-      position: static;
-      margin: auto;
-    }
-  
-    .page-link {
-      font: 300 1.7vmax "Roboto";
-    }
-    .category-link {
-      font: 400 1.8vmax "Roboto";
-    }
+  .filterBox {
+    width: 100%;
+    position: static;
+    margin-bottom: 2rem;
   }
+}
+
+@media screen and (max-width: 600px) {
+  .ProductsPage {
+    padding: 2rem;
+  }
+  .ProductsContainer {
+    grid-template-columns: 1fr;
+  }
+}
