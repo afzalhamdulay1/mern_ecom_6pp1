@@ -38,8 +38,13 @@ const OrderDetails = () => {
           <MetaData title="Order Details" />
           <div className="orderDetailsPage">
             <div className="orderDetailsContainer">
+              {/* Shipping Information Section */}
               <div className="orderDetailsSection">
-                <Typography variant="h1" className="orderTitle">Order #{orderDetails?._id}</Typography>
+                <Typography variant="h1">Order Details</Typography>
+                <div className="orderStatusSubheader">
+                   <p>Order ID: <span>#{orderDetails?._id}</span></p>
+                </div>
+                
                 <Typography variant="h6">Shipping Info</Typography>
                 <div className="orderDetailsContainerBox">
                   <div>
@@ -52,43 +57,57 @@ const OrderDetails = () => {
                   </div>
                   <div>
                     <p>Address:</p>
-                    <span>{orderDetails.shippingInfo && `${orderDetails.shippingInfo.address}, ${orderDetails.shippingInfo.city}, ${orderDetails.shippingInfo.state}, ${orderDetails.shippingInfo.pinCode}, ${orderDetails.shippingInfo.country}`}</span>
+                    <span>
+                      {orderDetails.shippingInfo &&
+                        `${orderDetails.shippingInfo.address}, ${orderDetails.shippingInfo.city}, ${orderDetails.shippingInfo.state}, ${orderDetails.shippingInfo.pinCode}, ${orderDetails.shippingInfo.country}`}
+                    </span>
                   </div>
                 </div>
-                <Typography variant="h6">Payment</Typography>
+
+                <Typography variant="h6">Payment History</Typography>
                 <div className="orderDetailsContainerBox">
                   <div>
-                    <p className={orderDetails.paymentInfo?.status === "succeeded" ? "greenColor" : "redColor"}>
-                      {orderDetails.paymentInfo?.status === "succeeded" ? "PAID" : "NOT PAID"}
-                    </p>
+                    <p>Gateway:</p>
+                    <span className="gatewayName">Stripe Terminal</span>
                   </div>
                   <div>
-                    <p>Amount:</p>
-                    <span>₹{orderDetails.totalPrice}</span>
+                    <p>Status:</p>
+                    <span className={orderDetails.paymentInfo?.status === "succeeded" ? "greenColor" : "redColor"}>
+                      {orderDetails.paymentInfo?.status === "succeeded" ? "Transaction Successful" : "Payment Required"}
+                    </span>
+                  </div>
+                  <div>
+                    <p>Total Amount:</p>
+                    <span className="totalPriceTag">₹{orderDetails.totalPrice}</span>
                   </div>
                 </div>
-                <Typography variant="h6">Order Status</Typography>
+
+                <Typography variant="h6">Delivery Status</Typography>
                 <div className="orderDetailsContainerBox">
                   <div>
-                    <p className={orderDetails.orderStatus === "Delivered" ? "greenColor" : "redColor"}>
+                    <p>Current State:</p>
+                    <span className={orderDetails.orderStatus === "Delivered" ? "greenColor" : "redColor"}>
                       {orderDetails.orderStatus}
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="orderDetailsSection">
-              <Typography variant="h6">Order Items:</Typography>
+            {/* Sidebar: Order Items */}
+            <div className="orderDetailsSection orderSummarySidebar">
+              <Typography variant="h6">Purchased Items</Typography>
               <div className="orderDetailsCartItemsContainer">
                 {orderDetails.orderItems &&
                   orderDetails.orderItems.map((item) => (
-                    <div key={item.product}>
+                    <div key={item.product} className="orderItemRow">
                       <img src={item.image} alt={item.name} />
-                      <Link to={`/product/${item.product}`}>{item.name}</Link>
-                      <span>
-                        {item.quantity} × ₹{item.price} = <b>₹{item.price * item.quantity}</b>
-                      </span>
+                      <div className="orderItemInfo">
+                        <Link to={`/product/${item.product}`}>{item.name}</Link>
+                        <span>
+                          {item.quantity} × ₹{item.price} = <b>₹{item.price * item.quantity}</b>
+                        </span>
+                      </div>
                     </div>
                   ))}
               </div>

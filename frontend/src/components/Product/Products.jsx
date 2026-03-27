@@ -423,69 +423,70 @@ const Products = () => {
           <Fragment>
             <MetaData title="ECOMMERCE" />
 
-            {products && products.length === 0 ? (
-              <div className="noProducts">
-                <h2>No Products Found</h2>
+            <Fragment>
+              <div className="totalProductsText">
+                Total Products: {filteredProductsCount}
               </div>
-            ) : (
-              <Fragment>
-                <div className="totalProductsText">
-                  Total Products: {filteredProductsCount}
-                </div>
-                
-                <div className="productsLayout">
-                  <div className="filterBox">
-                    <Typography>Price</Typography>
+
+              <div className="productsLayout">
+                <div className="filterBox">
+                  <Typography>Price</Typography>
+                  <Slider
+                    value={price}
+                    onChange={(event, newPrice) => setPrice(newPrice)}
+                    valueLabelDisplay="auto"
+                    aria-labelledby="range-slider"
+                    min={0}
+                    max={250000}
+                  />
+
+                  <Typography>Categories</Typography>
+                  <ul className="categoryBox">
+                    {categories.map((cat) => (
+                      <li
+                        className={`category-link ${
+                          category === cat || (cat === "All" && category === "") ? "active" : ""
+                        }`}
+                        key={cat}
+                        onClick={() => setCategory(cat === "All" ? "" : cat)}
+                      >
+                        {cat}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <fieldset>
+                    <Typography component="legend">Ratings Above</Typography>
                     <Slider
-                      value={price}
-                      onChange={(event, newPrice) => setPrice(newPrice)}
+                      value={ratings}
+                      onChange={(e, newRating) => setRatings(newRating)}
+                      aria-labelledby="continuous-slider"
                       valueLabelDisplay="auto"
-                      aria-labelledby="range-slider"
                       min={0}
-                      max={250000}
+                      max={5}
                     />
+                  </fieldset>
 
-                    <Typography>Categories</Typography>
-                    <ul className="categoryBox">
-                      {categories.map((cat) => (
-                        <li
-                          className={`category-link ${
-                            category === cat || (cat === "All" && category === "") ? "active" : ""
-                          }`}
-                          key={cat}
-                          onClick={() => setCategory(cat === "All" ? "" : cat)}
-                        >
-                          {cat}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <fieldset>
-                      <Typography component="legend">Ratings Above</Typography>
-                      <Slider
-                        value={ratings}
-                        onChange={(e, newRating) => setRatings(newRating)}
-                        aria-labelledby="continuous-slider"
-                        valueLabelDisplay="auto"
-                        min={0}
-                        max={5}
-                      />
-                    </fieldset>
-
-                    <Button variant="contained" className="applyFiltersBtn" onClick={handleSubmit}>
-                      Apply Filters
-                    </Button>
-                  </div>
-
-                  <div className="ProductsContainer">
-                    {products &&
-                      products.map((product) => (
-                        <ProductCard key={product._id} product={product} />
-                      ))}
-                  </div>
+                  <Button variant="contained" className="applyFiltersBtn" onClick={handleSubmit}>
+                    Apply Filters
+                  </Button>
                 </div>
-              </Fragment>
-            )}
+
+                <div className="ProductsContainer">
+                  {products && products.length === 0 ? (
+                    <div className="noProductsInside">
+                      <h2>No Products Found</h2>
+                      <p>Try adjusting your filters to find what you're looking for.</p>
+                    </div>
+                  ) : (
+                    products &&
+                    products.map((product) => (
+                      <ProductCard key={product._id} product={product} />
+                    ))
+                  )}
+                </div>
+              </div>
+            </Fragment>
 
             {resultPerPage < count && (
               <div className="paginationBox">

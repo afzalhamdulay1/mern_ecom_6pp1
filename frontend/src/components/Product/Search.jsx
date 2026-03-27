@@ -11,8 +11,9 @@ const Search = () => {
     e.preventDefault();
 
     // Redirect based on the search keyword
-    if (keyword.trim()) {
-      navigate(`/products/${keyword}`);
+    const trimmedKeyword = keyword.trim();
+    if (trimmedKeyword) {
+      navigate(`/products/${trimmedKeyword}`);
     } else {
       navigate("/products");
     }
@@ -21,15 +22,24 @@ const Search = () => {
   return (
     <Fragment>
       <MetaData title="Search A Product -- ECOMMERCE" />
-      <form className="searchBox" onSubmit={searchSubmitHandler}>
-        <input
-          type="text"
-          placeholder="Search a Product ..."
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)} // Update the keyword state
-        />
-        <input type="submit" value="Search" />
-      </form>
+      <div className="searchBox">
+        <MetaData title="Explore Our Products -- ECOMMERCE" />
+        
+        <div className="searchHeader">
+          <h1>Discover Something New</h1>
+          <p>Find the best gadgets, fashion, and lifestyle essentials with ease.</p>
+        </div>
+
+        <form className="searchInputContainer" onSubmit={searchSubmitHandler}>
+          <input
+            type="text"
+            placeholder="Search our catalog (e.g. Laptop, Nike, Blue)..."
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+          />
+          <input type="submit" value="Search Now" />
+        </form>
+      </div>
     </Fragment>
   );
 };

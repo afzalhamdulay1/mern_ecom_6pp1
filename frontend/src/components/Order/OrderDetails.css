@@ -25,157 +25,213 @@
 .orderDetailsSection > .MuiTypography-h1 {
   font-family: "Outfit", sans-serif;
   font-weight: 800;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #1a1a1a;
   margin-bottom: 2rem;
   border-left: 5px solid rgb(248 113 113);
-  padding-left: 1rem;
+  padding-left: 1.25rem;
+}
+
+.orderStatusSubheader {
+  margin-top: -1.5rem;
+  margin-bottom: 3.5rem;
+  padding-left: 1.5rem;
+}
+
+.orderStatusSubheader p {
+  font-family: "Outfit", sans-serif;
+  color: #94a3b8;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.orderStatusSubheader span {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-left: 0.5rem;
 }
 
 .orderDetailsSection > .MuiTypography-h6 {
   font-family: "Outfit", sans-serif;
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #1a1a1a;
   margin-bottom: 2rem;
   border-left: 5px solid rgb(248 113 113);
-  padding-left: 1rem;
+  padding-left: 1.25rem;
+}
+
+.orderDetailsContainerBox {
+  margin-bottom: 3rem;
+}
+
+.orderDetailsContainerBox:last-child {
+  margin-bottom: 0;
 }
 
 .orderDetailsContainerBox > div {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 1.5rem 0;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin: 1.25rem 0;
 }
 
 .orderDetailsContainerBox > div > p {
   font-family: "Outfit", sans-serif;
   font-weight: 700;
-  color: #475569;
-  min-width: 100px;
+  color: #64748b;
+  min-width: 120px;
   margin: 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .orderDetailsContainerBox > div > span {
   font-family: "Outfit", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   color: #1e293b;
   font-size: 1.1rem;
+  flex: 1;
+}
+
+.totalPriceTag {
+  font-weight: 800 !important;
+  color: #1a1a1a !important;
+  font-size: 1.4rem !important;
+}
+
+.gatewayName {
+  color: #94a3b8 !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .greenColor {
-  color: #10b981;
+  color: #10b981 !important;
   font-weight: 700;
 }
 
 .redColor {
-  color: #ef4444;
+  color: #ef4444 !important;
   font-weight: 700;
 }
 
+/* ── Sidebar: Items ──────────────────────────────────── */
+.orderSummarySidebar {
+  position: sticky;
+  top: 6rem;
+}
+
 .orderDetailsCartItemsContainer {
-  max-height: 500px;
-  overflow-y: auto;
-  padding-right: 1rem;
+  margin-top: 1.5rem;
 }
 
-.orderDetailsCartItemsContainer::-webkit-scrollbar {
-  width: 6px;
-}
-
-.orderDetailsCartItemsContainer::-webkit-scrollbar-thumb {
-  background: #e2e8f0;
-  border-radius: 10px;
-}
-
-.orderDetailsCartItemsContainer > div {
+.orderItemRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 0;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
   border-bottom: 1px solid #f1f5f9;
 }
 
-.orderDetailsCartItemsContainer > div:last-child {
+.orderItemRow:last-child {
   border-bottom: none;
 }
 
-.orderDetailsCartItemsContainer > div > img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  background-color: #f8fafc;
-  border-radius: 1rem;
+.orderItemRow img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 1px solid #f1f5f9;
 }
 
-.orderDetailsCartItemsContainer > div > a {
+.orderItemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   flex: 1;
-  color: #1e293b;
-  margin: 0 2rem;
-  text-decoration: none;
+}
+
+.orderItemInfo a {
   font-family: "Outfit", sans-serif;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1e293b;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.orderDetailsCartItemsContainer > div > a:hover {
+.orderItemInfo a:hover {
   color: rgb(248 113 113);
 }
 
-.orderDetailsCartItemsContainer > div > span {
+.orderItemInfo span {
   font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
   color: #64748b;
-  font-size: 0.95rem;
 }
 
-.orderDetailsCartItemsContainer > div > span > b {
+.orderItemInfo b {
   color: #1a1a1a;
   font-weight: 800;
-  margin-left: 0.5rem;
+  margin-left: 0.3rem;
 }
 
+/* ── Responsive ──────────────────────────────────────── */
 @media screen and (max-width: 1200px) {
   .orderDetailsPage {
     padding: 3rem 5%;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
   }
 }
 
 @media screen and (max-width: 900px) {
   .orderDetailsPage {
     grid-template-columns: 1fr;
-    gap: 2rem;
+  }
+  
+  .orderSummarySidebar {
+    position: static;
   }
 }
 
 @media screen and (max-width: 600px) {
   .orderDetailsPage {
-    padding: 2rem 5%;
-    gap: 1.5rem;
+    padding: 2rem 1.25rem;
   }
   
   .orderDetailsSection {
-    padding: 2rem;
+    padding: 2rem 1.5rem;
   }
   
-  .orderDetailsSection > .MuiTypography-h1,
+  .orderDetailsSection > .MuiTypography-h1 {
+    font-size: 1.5rem;
+  }
+  
   .orderDetailsSection > .MuiTypography-h6 {
     font-size: 1.25rem;
   }
-  
-  .orderDetailsCartItemsContainer > div {
+
+  .orderDetailsContainerBox > div {
     flex-direction: column;
-    text-align: center;
+    gap: 0.4rem;
+  }
+
+  .orderDetailsContainerBox > div > p {
+    font-size: 0.8rem;
+  }
+
+  .orderItemRow {
     gap: 1rem;
   }
-  
-  .orderDetailsCartItemsContainer > div > a {
-    margin: 0;
-    order: 2;
-  }
-  
-  .orderDetailsCartItemsContainer > div > img {
-    order: 1;
+
+  .orderItemRow img {
+    width: 60px;
+    height: 60px;
   }
 }
-  

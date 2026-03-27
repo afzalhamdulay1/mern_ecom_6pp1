@@ -1,59 +1,3 @@
-// import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
-// import { api } from '../../services/api';
-
-// // Async Thunk for creating a new review
-// export const createNewReview = createAsyncThunk(
-//   'reviews/createNewReview',
-//   async (reviewData, { rejectWithValue }) => {
-//     try {
-//       const config = {
-//         headers: { 'Content-Type': 'application/json' },
-//       };
-//       const { data } = await api.put('/review', reviewData, config);
-//       return data.success;
-//     } catch (error) {
-//       return rejectWithValue(error.response.data.message);
-//     }
-//   }
-// );
-
-// const newReviewSlice = createSlice({
-//   name: 'newReview',
-//   initialState: {
-//     loading: false,
-//     success: false,
-//     error: null,
-//   },
-//   reducers: {
-//     clearErrors: (state) => {
-//       state.error = null;
-//     },
-//     resetReview: (state) => {
-//       state.success = false;
-//     },
-//   },
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(createNewReview.pending, (state) => {
-//         state.loading = true;
-//         state.error = null;
-//       })
-//       .addCase(createNewReview.fulfilled, (state) => {
-//         state.loading = false;
-//         state.success = true;
-//       })
-//       .addCase(createNewReview.rejected, (state, action) => {
-//         state.loading = false;
-//         state.error = action.payload;
-//       });
-//   },
-// });
-
-// export const { clearErrors, resetReview } = newReviewSlice.actions;
-// export default newReviewSlice.reducer;
-
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '../../services/api';
 
@@ -85,19 +29,6 @@ export const getAllReviews = createAsyncThunk(
     }
   }
 );
-
-// // Delete a Review
-// export const deleteReview = createAsyncThunk(
-//   'reviews/deleteReview',
-//   async (reviewId, { rejectWithValue }) => {
-//     try {
-//       const { data } = await api.delete(`/review?id=${reviewId}`);
-//       return data.success;
-//     } catch (error) {
-//       return rejectWithValue(error.response.data.message);
-//     }
-//   }
-// );
 
 export const deleteReview = createAsyncThunk(
   'reviews/deleteReview',
@@ -188,13 +119,12 @@ const reviewSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(deleteReview.fulfilled, (state,action) => {
+      .addCase(deleteReview.fulfilled, (state, action) => {
         state.loading = false;
         state.isDeleted = true;
         state.reviews = state.reviews.filter(
           (review) => review._id !== action.meta.arg.reviewId
         );
-        // state.reviews = state.reviews.filter((review) => review._id !== action.payload.reviewId);
       })
       .addCase(deleteReview.rejected, (state, action) => {
         state.loading = false;
@@ -217,6 +147,5 @@ const reviewSlice = createSlice({
   },
 });
 
-// Export Actions and Reducer
 export const { clearErrors, resetReviewState } = reviewSlice.actions;
 export default reviewSlice.reducer;
